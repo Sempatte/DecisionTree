@@ -1,0 +1,11 @@
+posicion,nivel,salario
+analista,1,45000
+consultor junior,2,50000
+consultor senior,3,60000
+manager,4,80000
+manager general,5,110000
+manager regional,6,150000
+socio,7,200000
+socio senior,8,300000
+nivel-c,9,500000
+CEO,10,1000000

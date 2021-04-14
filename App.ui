@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>284</width>
+    <height>315</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>99999</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Mate Computacional App</string>
+  </property>
+  <property name="toolTip">
+   <string/>
+  </property>
+  <property name="statusTip">
+   <string/>
+  </property>
+  <property name="whatsThis">
+   <string/>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow{
+border-radius: 20px;
+}
+QMainWindow QFrame{
+color: #fff;
+}
+</string>
+  </property>
+  <property name="inputMethodHints">
+   <set>Qt::ImhNone</set>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>261</width>
+      <height>261</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+border-style: solid;
+border-color: rgb(0, 51, 102);
+color: rgb(255, 255, 255);
+border-radius: 5px;
+
+}
+
+
+.QWidget{
+background-color: rgba(0,0,0,0.35);
+border: 4px solid transparent; 
+border-radius: 10px;
+
+}
+</string>
+    </property>
+    <widget class="QLabel" name="lbl_Initial">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>50</y>
+       <width>251</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Myanmar Text</family>
+       <pointsize>13</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+       <underline>false</underline>
+       <strikeout>false</strikeout>
+       <kerning>false</kerning>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: transparent;</string>
+     </property>
+     <property name="text">
+      <string>Seleccionar dataset (.csv)</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_Examinar">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>100</y>
+       <width>221</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>HoloLens MDL2 Assets</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 0, 0)</string>
+     </property>
+     <property name="text">
+      <string>Examinar archivo ...</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_Aceptar">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>220</y>
+       <width>221</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>HoloLens MDL2 Assets</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(111, 111, 111)</string>
+     </property>
+     <property name="text">
+      <string>Continuar</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_File">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>180</y>
+       <width>261</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Myanmar Text</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+       <underline>false</underline>
+       <strikeout>false</strikeout>
+       <kerning>false</kerning>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>284</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="../sources.qrc"/>
+  <include location="../Real Time Person Detector/Project/sources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
