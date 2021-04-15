@@ -9,18 +9,11 @@ import re # Expresiones regulares
 
 from sklearn.model_selection import train_test_split as separar
 from sklearn.preprocessing import MinMaxScaler
-from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
+from sklearn.tree import DecisionTreeRegressor as Arbol
 from statsmodels.tools.eval_measures import rmse
-from sklearn import tree
-from subprocess import check_call
 import matplotlib.pyplot as plt
 import numpy as np
-import graphviz
-import pydot
-import os
 
-
-os.environ["PATH"] += os.pathsep + 'C:\\Program Files\\Graphviz\\bin'
 
 class AppUI(QtWidgets.QMainWindow):
 
@@ -103,16 +96,9 @@ class AppUI(QtWidgets.QMainWindow):
         y = escaladorY.fit_transform(y.reshape(-1,1)) # Si ponemos (-1,1) aquí, el SVR se quejará
         '''
 
-        regresor = DecisionTreeClassifier(criterion='entropy', random_state=0)
-        r = regresor.fit(X, y)
+        regresor = Arbol(criterion='mse', random_state=0)
+        regresor.fit(X, y)
         
-        tree.export_graphviz(r, out_file="tree.dot", impurity=False, filled=True)
-
-        (graph,) = pydot.graph_from_dot_file('tree.dot')
-        graph.write_png('Image.png')
-
-
-                
         y_fit = regresor.predict(X).reshape(-1,1)
         #y_pred = regresor.predict(6.5).reshape(-1,1) 
         X_grid = np.arange(min(X), max(X), 0.01)
