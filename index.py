@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import graphviz
 import pydot
-import os
+import os, time
 
 
 os.environ["PATH"] += os.pathsep + 'C:\\Program Files\\Graphviz\\bin'
@@ -82,12 +82,6 @@ class AppUI(QtWidgets.QMainWindow):
         X = df['nivel'].values.reshape(-1,1)
         y = df['salario'].values.reshape(-1,1)
 
-        '''
-        c = df['humedad'].values
-        d = df['velocidad viento'].values
-        e = df['juego'].values
-        '''
-
 
      
         X_train, X_test, y_train, y_test = separar(X, y, test_size=0.3, random_state=0)
@@ -95,13 +89,6 @@ class AppUI(QtWidgets.QMainWindow):
         #print('La forma de y_train es: ', y_train.shape)
 
         
-        '''
-        escaladorX = MinMaxScaler()
-        X = escaladorX.fit_transform(X).reshape(-1,1)
-
-        escaladorY = MinMaxScaler()
-        y = escaladorY.fit_transform(y.reshape(-1,1)) # Si ponemos (-1,1) aquí, el SVR se quejará
-        '''
 
         regresor = DecisionTreeClassifier(criterion='entropy', random_state=0)
         r = regresor.fit(X, y)
@@ -110,11 +97,14 @@ class AppUI(QtWidgets.QMainWindow):
 
         (graph,) = pydot.graph_from_dot_file('tree.dot')
         graph.write_png('Image.png')
+        
 
 
                 
         y_fit = regresor.predict(X).reshape(-1,1)
+
         #y_pred = regresor.predict(6.5).reshape(-1,1) 
+
         X_grid = np.arange(min(X), max(X), 0.01)
         X_grid = X_grid.reshape(-1, 1)
         y_grid = regresor.predict(X_grid)
@@ -125,11 +115,14 @@ class AppUI(QtWidgets.QMainWindow):
         plt.xlabel('Nivel')
         plt.ylabel('Salario')
         plt.show()
+
         #print('Para un nivel 6.5 cobraría ', y_pred)
 
 
         RMSE = np.sum(rmse(y, y_fit))/len(y)
         print('RMSE = ', RMSE)
+
+        os.system('Image.png') #Abrir imagen
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
