@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>284</width>
-    <height>315</height>
+    <width>693</width>
+    <height>295</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -79,7 +79,7 @@ color: #fff;
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>261</width>
+      <width>671</width>
       <height>261</height>
      </rect>
     </property>
@@ -107,8 +107,8 @@ border-radius: 10px;
     <widget class="QLabel" name="lbl_Initial">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>50</y>
+       <x>210</x>
+       <y>10</y>
        <width>251</width>
        <height>51</height>
       </rect>
@@ -141,8 +141,8 @@ border-radius: 10px;
     <widget class="QPushButton" name="btn_Examinar">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>100</y>
+       <x>220</x>
+       <y>60</y>
        <width>221</width>
        <height>31</height>
       </rect>
@@ -166,8 +166,8 @@ border-radius: 10px;
     <widget class="QPushButton" name="btn_Aceptar">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>220</y>
+       <x>220</x>
+       <y>110</y>
        <width>221</width>
        <height>31</height>
       </rect>
@@ -188,19 +188,44 @@ border-radius: 10px;
       <string>Continuar</string>
      </property>
     </widget>
-    <widget class="QLabel" name="lbl_File">
+    <widget class="QPushButton" name="btn_Salir">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>180</y>
-       <width>261</width>
-       <height>51</height>
+       <x>220</x>
+       <y>160</y>
+       <width>221</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>HoloLens MDL2 Assets</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 0, 0)</string>
+     </property>
+     <property name="text">
+      <string>Salir</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_dataItems">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>651</width>
+       <height>151</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Myanmar Text</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
        <weight>50</weight>
        <italic>false</italic>
        <bold>false</bold>
@@ -213,13 +238,41 @@ border-radius: 10px;
       <string notr="true">background: transparent;</string>
      </property>
      <property name="text">
-      <string/>
+      <string>VALUES</string>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
      <property name="wordWrap">
       <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_Volver">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>210</y>
+       <width>221</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>HoloLens MDL2 Assets</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(70, 119, 255)</string>
+     </property>
+     <property name="text">
+      <string>Volver</string>
      </property>
     </widget>
    </widget>
@@ -229,7 +282,7 @@ border-radius: 10px;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>284</width>
+     <width>693</width>
      <height>21</height>
     </rect>
    </property>

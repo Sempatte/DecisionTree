@@ -1,0 +1,13 @@
+cielo,ambiente,humedad,velocidad viento,juego
+lluvioso,calido,alto,muy bajo,no
+lluvioso,calido,alto,muy alto,no
+nublado,calido,alto,muy bajo,si
+soleado,temperatura media,alto,muy bajo,si
+soleado,frio,normal,muy bajo,si
+soleado,frio,alto,muy alto,no
+nublado,frio,alto,muy alto,si
+lluvioso,temperatura media,alto,muy bajo,no
+lluvioso,frio,alto,muy alto,si
+nublado,temperatura media,alto,muy alto,si
+soleado,temperatura media,alto,muy alto,no
+soleado,temperatura media,alto,muy bajo,

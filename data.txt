@@ -1,0 +1,19 @@
+CIELO
+Lluvioso=1
+Nublado=2
+Soleado=3
+
+AMBIENTE
+Calido=1
+TemperaturaMedia=2
+frio=3
+
+HUMEDAD
+alto=1
+bajo=2
+normal=3
+
+VELOCIDAD VIENTO
+muy alto=1
+muy bajo=2
+
