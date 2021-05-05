@@ -21,13 +21,10 @@ import os
 import time
 import subprocess
 
-os.environ["PATH"] += os.pathsep + 'C:\\Program Files\\Graphviz\\bin'
-
-
 class AppUI(QtWidgets.QMainWindow):
 
     def __init__(self):
-        super().__init__()
+        super(AppUI, self).__init__()
         uic.loadUi('App.ui', self)
         W = 693
         H = 295
@@ -35,7 +32,7 @@ class AppUI(QtWidgets.QMainWindow):
         self.expanded = False
         self.statusBar().setSizeGripEnabled(False)
         self.statusBar().hide()
-
+        self.setWindowTitle("Dataset no seleccionado.")
         self.dataset = None
 
         self.btn_Aceptar.setEnabled(False)
@@ -59,6 +56,10 @@ class AppUI(QtWidgets.QMainWindow):
         self.movie.setSpeed(200)
         self.movie.start()
 
+    def SetupUI(self):
+        self.show()
+
+
     def paintEvent(self, event):
         currentFrame = self.movie.currentPixmap()
         frameRect = currentFrame.rect()
@@ -74,7 +75,7 @@ class AppUI(QtWidgets.QMainWindow):
 
         root_array = re.split('/', self.dataset)
         NameOfDataset = root_array[len(root_array) - 1]
-        print(NameOfDataset)
+
 
         #self.lbl_File.setText(NameOfDataset)
         self.setWindowTitle(NameOfDataset)
@@ -110,11 +111,8 @@ class AppUI(QtWidgets.QMainWindow):
             uniqueVars.append(list(df[col].unique()))
 
 
-        ifString = False
-
-        if df.dtypes[0] != 'int64':
-            # STRING TO INTEGERS
-            for i, item in enumerate(headers):
+        for i, item in enumerate(headers):
+            if df.dtypes[i] == str("object"):
                 for j, _var in enumerate(uniqueVars):
                     for z, _othervar in enumerate(uniqueVars[j]):
                         df.loc[df[item] == _othervar, item] = int(z+1)
@@ -123,15 +121,13 @@ class AppUI(QtWidgets.QMainWindow):
         data = data[0:-1]
         df = df.head(int(len(df) - 1))
 
-        #data['output'] = 2 #VALUE RESPONSE
-
         Y_vars = []
 
         for i in range(len(df.index)):
             Y_vars.append(df.iloc[i][headers[-1]])
 
 
-        clf = tree.DecisionTreeClassifier(criterion='entropy')
+        clf = tree.DecisionTreeClassifier()
 
         df = df.drop(headers[-1], 1)
         depVar = headers[-1]
@@ -144,7 +140,7 @@ class AppUI(QtWidgets.QMainWindow):
         model = clf.fit(X, Y)
 
         text_representation = tree.export_text(clf)
-        #print(text_representation)
+
 
         fig = plt.figure(figsize=(25,20))
         _ = tree.plot_tree(clf, feature_names=headers ,filled=True)
@@ -153,25 +149,44 @@ class AppUI(QtWidgets.QMainWindow):
 
         fig.savefig(FileOutputFn)
 
-        #print(headers)
-        #print(data)
-        
+
         dataItems = {}
         for i, item in enumerate(headers):
             dataItems[item] = data[i]
         
-        #print(dataItems)
+
         prediction = clf.predict([data])
-        print(prediction[0])
+
         self.lbl_dataItems.setVisible(True)
         
         self.lbl_dataItems.setText("Con las variables\n" +  str(dataItems) + "\nTenemos como resutado:\n" + str(depVar).capitalize() + ": " + str(prediction[0]))
         os.system(FileOutputFn)
 
-    
+
+class CoverUI(QtWidgets.QMainWindow):
+    def __init__(self):
+        QtWidgets.QMainWindow.__init__(self)
+        uic.loadUi('Cover.ui', self)
+
+        W = 700
+        H = 500
+        self.setWindowTitle("Arbol de desiciones")
+        self.setStyleSheet("background-image: url('PortadaPrograma.jpg'); background-attachment: fixed")
+        self.statusBar().setSizeGripEnabled(False)
+        self.setFixedSize(W, H)
+        self.statusBar().hide()
+        self.expanded = False
+
+        self.btn_Comenzar.clicked.connect(self.comenzar)
+        self.show()
+
+    def comenzar(self):
+        self.close()
+        self.main = AppUI()
+        self.main.SetupUI()
+
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    GUI = AppUI()
-    GUI.show()
+    GUI = CoverUI()
     sys.exit(app.exec_())
